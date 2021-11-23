@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 const Header = ({
     isAuthenticated,
-    username
+    user
 }) => {
     let guestNavigation = (
         <div id="guest">
@@ -11,7 +11,7 @@ const Header = ({
     )
     let userNavigation = (
         <div id="user">
-            <span>Welcome, email</span>
+            <span>Welcome, {user}</span>
             <Link to="/my-pets" className="button">My Pets</Link>
             <Link to="/create" className="button">Add Pet</Link>
             <Link to="#" className="button">Logout</Link>
