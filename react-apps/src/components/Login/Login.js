@@ -10,8 +10,19 @@ const Login = ({
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget)
+
         let email = formData.get('email')
-        authService.login(email)
+        let password = formData.get('password')
+
+        authService.login(email,password)
+        .then((authData) => {
+            onLogin(authData)
+            console.log(authData);
+            navigate('/dashboard')
+             
+        }).catch (err => {
+            console.log(err);
+        })
         onLogin(email)
         navigate('/')
 
